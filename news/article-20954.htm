@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-20954.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>java实现线程安全的单例模型</title>
+        <meta name="description" content="单例模式：确保某要给类只有一个实例，并提供一个全局访问带你来访问这个实例。   //饿汉模式：（线程安全） public class Singleton1 {     // 静态私有成员变量     " />
+        <link rel="icon" href="__ADDON__/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                                <a href="/">SSR Windows</a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>java实现线程安全的单例模型</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>单例模式：确保某要给类只有一个实例，并提供一个全局访问带你来访问这个实例。</p> </blockquote> </h1> <pre><code class="prism language-java"><span class="token comment">//饿汉模式：（线程安全）</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton1</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">// 静态私有成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> Singleton1 instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 静态公有工厂方法，返回唯一实例</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton1 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <pre><code class="prism language-java"><span class="token comment">// 懒汉模式：（线程不安全，需要通过双重检查锁定机制控制）（双检锁）</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton2</span> <span class="token punctuation">{<!-- --></span>  　　<span class="token comment">// 静态私有成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> Singleton2 instance <span class="token operator">=</span> null<span class="token punctuation">;</span> 　　<span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 静态公有工厂方法，判断成员变量是否为空，不为空则实例化</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton2 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span>             instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>优缺点：</p> <blockquote> <p>饿汉模型不需要考虑线程安全问题，调用速度和访问速度优于懒汉模型，但是由于它不管是是否被调用都会提前创建类的实例，所以资源利用率比较低，系统加载时间比较长。<br /> 懒汉模式实现了延迟加载，但是需要克服多线程同时访问的问题，需要通过双检锁（双重检查锁定机制）来进行控制，导致性能受到一定影响。</p> </blockquote> </h1> <p><strong>假设有两个线程AB，其中A执行到检查方法，判断实例为空null,那么A会得到ture的结果，但是B线程运行，也有可能出现判断实例为空null的情况，那么两个线程都会执行instance = new Singleton();从而创建了两个实例。</strong></p> <h2> <a id="_42" rel="nofollow"></a>双检锁（双重检查锁定机制）</h2> <p>为了避免以上这种尴尬的情况，需要将这两行代码加上同步锁。但这还不够完美，每次调用函数得到实例都要试图加上一个同步锁（类锁），而加锁是一个非常耗时的操作，没有必要的情况下应该尽量避免。基于这种想法，我们可以在加锁前再次判断实例是否为空。这就是双重检查锁定机制。</p> <p>还有一点，定义 instance 变量时需要使用 volatile 进行修饰，因为需要保证 instance 变量发生修改后可以及时将结果刷新到主内存中，对其他线程可见。</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton3</span> <span class="token punctuation">{<!-- --></span> 　　<span class="token comment">// 私有静态成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> Singleton3 instance <span class="token operator">=</span> null<span class="token punctuation">;</span> 　　<span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 共有静态工厂方法</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton3 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 　　<span class="token comment">// 判断 instance 是否为空,为空-&gt;加锁，创建实例（为了进程安全，再次判断），不为空-&gt;返回实例</span>         <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>Singleton3<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>                 <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span>                     instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>         <span class="token punctuation">}</span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> </h1> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{<!-- --></span> 	<span class="token comment">//私有构造函数</span> 	<span class="token keyword">private</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token punctuation">}</span>     <span class="token comment">//静态内部类</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">HolderClass</span><span class="token punctuation">{<!-- --></span>     	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Singleton instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> 	<span class="token comment">//静态公有工厂方法，返回内部类中创建的实现</span> 	<span class="token keyword">public</span> <span class="token keyword">static</span> singleton <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		<span class="token keyword">return</span> HolderClass<span class="token punctuation">.</span>instance<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <blockquote> <p>加载Singleton类的过程中，会为类变量在方法区中分配内存空间并初始化，但是，<strong>并不会加载静态内部类HolderClass</strong>.<br /> 当调用Singleton.getInstance()，执行return HolderClass.instance语句时，HolderClass类才会被加载，instance对象才会被初始化。</p> </blockquote> <p>上面的解释说明使用静态内部类创建实例是 懒加载 的； HolderClass 只会加载一次，保证了 instance 是单例的；类加载过程是线程安全的，保证 instance 初始化的过程是线程安全的。</p> </h1> <p>利用枚举的特性，让JVM来帮我们保证线程安全和单一实例</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> Singleton <span class="token punctuation">{<!-- --></span>      INSTANCE<span class="token punctuation">;</span>      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"doSomething"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         Singleton<span class="token punctuation">.</span>INSTANCE<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>  <span class="token punctuation">}</span>   </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20500.htm">宠物店赔钱吗（宠物店暴利吗）</a></p>
+                                        <p>下一个：<a href="/news/article-20955.htm">Vue.js 3.x 双向绑定原理_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-1-node-share-links.htm" title="8月1日|Shadowrocket/V2ray/SSR/Clash每天更新20.8M/S免费节点订阅链接">8月1日|Shadowrocket/V2ray/SSR/Clash每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-free-node-subscribe-links.htm" title="8月18日|Clash/V2ray/Shadowrocket/SSR每天更新18.6M/S免费节点订阅链接">8月18日|Clash/V2ray/Shadowrocket/SSR每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-free-ssr-subscribe.htm" title="7月31日|Clash/SSR/Shadowrocket/V2ray每天更新19.9M/S免费节点订阅链接">7月31日|Clash/SSR/Shadowrocket/V2ray每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-9-free-node-subscribe-links.htm" title="8月9日|V2ray/Shadowrocket/Clash/SSR每天更新22.9M/S免费节点订阅链接">8月9日|V2ray/Shadowrocket/Clash/SSR每天更新22.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-v2ray-ss-ssr.htm" title="11月22日|Clash/SSR/Shadowrocket/V2ray每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">11月22日|Clash/SSR/Shadowrocket/V2ray每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-v2ray-ss-ssr.htm" title="10月27日|V2ray/Shadowrocket/Clash/SSR每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐">10月27日|V2ray/Shadowrocket/Clash/SSR每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-clash-v2ray-ss-ssr.htm" title="8月31日|Shadowrocket/V2ray/SSR/Clash每天更新20.6M/S免费节点订阅链接">8月31日|Shadowrocket/V2ray/SSR/Clash每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe-links.htm" title="10月12日|SSR/Shadowrocket/V2ray/Clash每天更新18.8M/S免费节点订阅链接">10月12日|SSR/Shadowrocket/V2ray/Clash每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-node-share.htm" title="9月21日|SSR/V2ray/Shadowrocket/Clash每天更新22.5M/S免费节点订阅链接">9月21日|SSR/V2ray/Shadowrocket/Clash每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日|Clash/SSR/V2ray/Shadowrocket每天更新21.8M/S免费节点订阅链接">10月10日|Clash/SSR/V2ray/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
