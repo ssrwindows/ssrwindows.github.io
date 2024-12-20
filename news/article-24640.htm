@@ -71,7 +71,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">路由跳转router-link清除历史记录</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">官方文档提供了如下三种方式</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue跳转后不记录历史记录</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>路由跳转router-link清除历史记录</h2> <p>1.在vue项目中说起路由跳转，我们最先想到的就是router-link标签以及this.$router.push函数。</p> <p>router-link和this.\$router.push的实现原理是一样的，在点击router-link时，内部调用的就是this.$router.push。</p> <p>2.this.\$router.push这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p> <p><strong>那在我们使用路由跳转的时候如何去掉历史记录呢？</strong></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>官方文档提供了如下三种方式</h3> <p>1.使用router-link标签时去掉历史记录：加上replace属性</p> <div class="ay1code"> <pre class="brush:js;">&lt;router-link to='/project_selection' replace class='btn_none' tag="a"&gt;项目列表&lt;/router-link&gt;</pre> </div> <p>2.使用this.\$router.push标签时去掉历史记录：加上replace属性，默认值为false</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push({path: '/project_selection',replace:true})</pre> </div> <p>3.使用this.\$router.replace标签时去掉历史记录</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> <p>所有内容源自于官网：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://router.vuejs.org/zh/guide/essentials/navigation.html"   target="_blank" rel="nofollow">vue路由核心插件</a></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue跳转后不记录历史记录</h2> <p>vue路由跳转一般情况下是使用push，</p> <div class="ay1code"> <pre class="brush:js;"> this.$router.push({                  path: "/testTeam/testTeam",                });</pre> </div> <p>若是特殊需求，页面跳转后不记录到历史记录中，将push改为replace即可</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">路由跳转router-link清除历史记录</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">官方文档提供了如下三种方式</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue跳转后不记录历史记录</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>路由跳转router-link清除历史记录</h2> <p>1.在vue项目中说起路由跳转，我们最先想到的就是router-link标签以及this.$router.push函数。</p> <p>router-link和this.\$router.push的实现原理是一样的，在点击router-link时，内部调用的就是this.$router.push。</p> <p>2.this.\$router.push这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p> <p><strong>那在我们使用路由跳转的时候如何去掉历史记录呢？</strong></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>官方文档提供了如下三种方式</h3> <p>1.使用router-link标签时去掉历史记录：加上replace属性</p> <div class="ay1code"> <pre class="brush:js;">&lt;router-link to='/project_selection' replace class='btn_none' tag="a"&gt;项目列表&lt;/router-link&gt;</pre> </div> <p>2.使用this.\$router.push标签时去掉历史记录：加上replace属性，默认值为false</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push({path: '/project_selection',replace:true})</pre> </div> <p>3.使用this.\$router.replace标签时去掉历史记录</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> <p>所有内容源自于官网：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://router.vuejs.org/zh/guide/essentials/navigation.html"   target="_blank" rel="nofollow">vue路由核心插件</a></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue跳转后不记录历史记录</h2> <p>vue路由跳转一般情况下是使用push，</p> <div class="ay1code"> <pre class="brush:js;"> this.$router.push({                  path: "/testTeam/testTeam",                });</pre> </div> <p>若是特殊需求，页面跳转后不记录到历史记录中，将push改为replace即可</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24178.htm">兰州在哪里买狗（兰州在哪里买狗比较好）</a></p>
                                         <p>下一个：<a href="/news/article-24641.htm">想开宠物店需要多少钱（我想开个宠物店大概的多少钱）</a></p>
@@ -84,16 +85,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-v2ray-ss-ssr.htm" title="10月27日|V2ray/Shadowrocket/Clash/SSR每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐">10月27日|V2ray/Shadowrocket/Clash/SSR每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-ssr-subscribe.htm" title="12月8日|Shadowrocket/SSR/Clash/V2ray每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐">12月8日|Shadowrocket/SSR/Clash/V2ray每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-node-share.htm" title="10月16日|Shadowrocket/V2ray/Clash/SSR每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐">10月16日|Shadowrocket/V2ray/Clash/SSR每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-21408.htm" title="基于docker部署Oracle 19c的详细记录_docker">基于docker部署Oracle 19c的详细记录_docker</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-ssr-node.htm" title="10月28日|Clash/Shadowrocket/V2ray/SSR每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐">10月28日|Clash/Shadowrocket/V2ray/SSR每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-23711.htm" title="DeferredResult异步处理spring mvc Demo">DeferredResult异步处理spring mvc Demo</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-free-node-subscribe.htm" title="9月16日|SSR/Clash/V2ray/Shadowrocket每天更新20.4M/S免费节点订阅链接">9月16日|SSR/Clash/V2ray/Shadowrocket每天更新20.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-ssr-node.htm" title="8月23日|V2ray/Clash/Shadowrocket/SSR每天更新19.5M/S免费节点订阅链接">8月23日|V2ray/Clash/Shadowrocket/SSR每天更新19.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21870.htm" title="什么是汇编中的循环详解">什么是汇编中的循环详解</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-node-share-links.htm" title="9月7日|SSR/V2ray/Clash/Shadowrocket每天更新19.7M/S免费节点订阅链接">9月7日|SSR/V2ray/Clash/Shadowrocket每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-ssr-subscribe.htm" title="11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-node-share.htm" title="8月4日|SSR/Shadowrocket/V2ray/Clash每天更新22.4M/S免费节点订阅链接">8月4日|SSR/Shadowrocket/V2ray/Clash每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-subscribe-node.htm" title="9月30日|Shadowrocket/Clash/SSR/V2ray每天更新23M/S免费节点订阅链接">9月30日|Shadowrocket/Clash/SSR/V2ray每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-high-speed-nodes.htm" title="10月5日|V2ray/SSR/Clash/Shadowrocket每天更新23M/S免费节点订阅链接">10月5日|V2ray/SSR/Clash/Shadowrocket每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23260.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/news/article-18713.htm" title="免费领养宠物的平台小狗是真的吗（免费领养宠物的平台小狗是真的吗知乎）">免费领养宠物的平台小狗是真的吗（免费领养宠物的平台小狗是真的吗知乎）</a></li>
+                        <li class="py-2"><a href="/news/article-25563.htm" title="动物疫苗的作用意义是什么意思啊（动物疫苗的重要性）">动物疫苗的作用意义是什么意思啊（动物疫苗的重要性）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-20500.htm" title="宠物店赔钱吗（宠物店暴利吗）">宠物店赔钱吗（宠物店暴利吗）</a></li>
+                        <li class="py-2"><a href="/news/article-22332.htm" title="长沙宠物领养救助站地址 长沙宠物领养救助站地址在哪里">长沙宠物领养救助站地址 长沙宠物领养救助站地址在哪里</a></li>
                     </ul>
     </div>
 </div>
@@ -105,7 +106,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -135,6 +136,15 @@
 <footer id="footer">
     <div class="container py-4">
         <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
             <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
         </div>
     </div>

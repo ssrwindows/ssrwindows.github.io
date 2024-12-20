@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-28354.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>vue3.0，setup()的使用，Composition Api(组合式api)data，computed，methods，watch</title>
+        <meta name="description" content="vue3.0项目创建好之后，来看看一个简单组件内的代码顺便介绍几个特点: 1.组合式api就是指把vue2.0中的data，computed，methods，watch都集中在3.0中的setup()" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                                <a href="/">SSR Windows</a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>vue3.0，setup()的使用，Composition Api(组合式api)data，computed，methods，watch</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2><a id="vue30_0" rel="nofollow"></a>vue3.0项目创建好之后，来看看一个简单组件内的代码顺便介绍几个特点:</h2> <p>1.组合式api就是指把vue2.0中的<strong>data</strong>，<strong>computed</strong>，<strong>methods</strong>，<strong>watch</strong>都集中在3.0中的setup()中<br /> 2.setup取代<strong>beforeCreate</strong>，<strong>created</strong>这两个周期，也就是原本放在这两个钩子的内容现在放在setup中<br /> 3.在setup里无法再使用<strong>this</strong>，因为在执行setup的时候组件实例还没创建成功(setup执行在<strong>beforeCreate</strong>之前)。<br /> 4.接收两个参数<strong>props</strong>，<strong>context</strong>(具体的后面讲)<br /> 5.代码可读性更高，维护也更方便。当然也完美兼容vue2.x</p> <pre><code class="prism language-bash"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token assign-left variable">class</span><span class="token operator">=</span><span class="token string">"home"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>user.name<span class="token punctuation">}</span><span class="token punctuation">}</span>--<span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>user.age<span class="token punctuation">}</span><span class="token punctuation">}</span>--<span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>num<span class="token punctuation">}</span><span class="token punctuation">}</span>--<span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>doubleCount<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"change"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>/button<span class="token operator">&gt;</span><span class="token operator">&lt;</span>/div<span class="token operator">&gt;</span><span class="token operator">&lt;</span>/template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token function">import</span><span class="token punctuation">{<!-- --></span> ref, reactive, computed, watch<span class="token punctuation">}</span> from<span class="token string">'vue'</span><span class="token builtin class-name">export</span> default<span class="token punctuation">{<!-- --></span>   name:<span class="token string">'Home'</span>,<span class="token function-name function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>   	const user<span class="token operator">=</span> reactive<span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> name:<span class="token string">'jerry'</span>, age:<span class="token number">18</span><span class="token punctuation">}</span><span class="token punctuation">)</span> // 创建引用类型数据使用reactive   	const num<span class="token operator">=</span> ref<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>	// 创建基础数据类型使用ref,使用是用.vulue 	const doubleCount<span class="token operator">=</span> computed<span class="token punctuation">((</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token builtin class-name">return</span> num.value *<span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     // watch的单个值写法，第一个参数是一个getter函数，该函数返回一个响应式对象，要响应式。     watch<span class="token punctuation">((</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span> num.value,<span class="token punctuation">(</span>newValue, old<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>     	// newValue新值,old旧值     	console.log<span class="token punctuation">(</span>newValue, old,<span class="token string">'--w'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     // watch的多个值写法     /* const num1<span class="token operator">=</span> ref<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span>     watch<span class="token punctuation">(</span><span class="token punctuation">[</span>count, count1<span class="token punctuation">]</span>,<span class="token punctuation">(</span><span class="token punctuation">[</span>newCount, newCount2<span class="token punctuation">]</span>,<span class="token punctuation">[</span>oldCount, oldCount2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>       console.log<span class="token punctuation">(</span><span class="token punctuation">[</span>newCount, newCount2<span class="token punctuation">]</span>,<span class="token string">'--'</span>,<span class="token punctuation">[</span>oldCount, oldCount2<span class="token punctuation">]</span>,<span class="token string">'--w'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>      watch<span class="token punctuation">((</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span> user,<span class="token punctuation">(</span>newValue, oldValue<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>     	console.log<span class="token punctuation">(</span>newValue, oldValue<span class="token punctuation">)</span><span class="token punctuation">}</span>,<span class="token punctuation">{<!-- --></span> deep:<span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span> // 深入监听user对象内部变化     watch<span class="token punctuation">(</span><span class="token punctuation">[</span>count, count1<span class="token punctuation">]</span>,<span class="token punctuation">(</span>newValue, oldValue<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>      	console.log<span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>//<span class="token punctuation">[</span>newCount, newCount2<span class="token punctuation">]</span>       	console.log<span class="token punctuation">(</span>oldValue<span class="token punctuation">)</span>//<span class="token punctuation">[</span>oldCount, oldCount2<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span> */     const change<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>       	num.value++<span class="token punctuation">}</span><span class="token builtin class-name">return</span><span class="token punctuation">{<!-- --></span>     	user,      	num,     	doubleCount，     	change<span class="token punctuation">}</span><span class="token punctuation">}</span>,<span class="token function-name function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>   	// vue2.0的内容也还是可以照常用的<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/script<span class="token operator">&gt;</span></code></pre> <h2><a id="setup_59" rel="nofollow"></a>setup()的两个参数</h2> <pre><code class="prism language-bash"><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token function">import</span><span class="token punctuation">{<!-- --></span> toRefs, toRef<span class="token punctuation">}</span> from<span class="token string">'vue'</span><span class="token builtin class-name">export</span> default<span class="token punctuation">{<!-- --></span>   name:<span class="token string">'Home'</span>,   // 因为props是响应性的，使用解构后会消除其响应性，所以需要使用toRefs, toRef   // 但是context不具有响应性，可以直接使用解构赋值，但是只能访问attrs, slots, emit, expose   setup<span class="token punctuation">(</span>props, context<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     const<span class="token punctuation">{<!-- --></span> name<span class="token punctuation">}</span><span class="token operator">=</span> toRefs<span class="token punctuation">(</span>props<span class="token punctuation">)</span>     const<span class="token punctuation">{<!-- --></span> name0<span class="token punctuation">}</span><span class="token operator">=</span> toRef<span class="token punctuation">(</span>props,<span class="token string">'jerry'</span><span class="token punctuation">)</span> // toRef的第二个参数就类似于函数形参的默认值    	const<span class="token punctuation">{<!-- --></span>attrs, slots, emit, expose<span class="token punctuation">}</span><span class="token operator">=</span> context // 可以打印出来自己去看这几个属性<span class="token builtin class-name">return</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/script<span class="token operator">&gt;</span></code></pre> <p><strong>方便维护，便于理解</strong><br /> 这样看就不会像vue2.0那样，在维护的时候想要查询某个变量的逻辑，要去data，watch，methos等等里面去找，代码一多，眼睛都给你看画，脑壳看痛</p> <pre><code class="prism language-bash"><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token function">import</span><span class="token punctuation">{<!-- --></span> ref, reactive<span class="token punctuation">}</span> from<span class="token string">'vue'</span><span class="token builtin class-name">export</span> default<span class="token punctuation">{<!-- --></span>   name:<span class="token string">'Home'</span>,   setup<span class="token punctuation">(</span>props, context<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	const num<span class="token operator">=</span> ref<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> 	/*<span class="token builtin class-name">.</span> 	.这里都是对num的操作代码<span class="token builtin class-name">.</span> 	*/ 	 	const user<span class="token operator">=</span> reactive<span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name:<span class="token string">'jerry'</span><span class="token punctuation">}</span><span class="token punctuation">)</span> 	/*<span class="token builtin class-name">.</span> 	.这里都是对user的操作代码<span class="token builtin class-name">.</span> 	*/<span class="token builtin class-name">return</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>/script<span class="token operator">&gt;</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27891.htm">动物防疫注射栏规范要求有哪些（动物防疫注射栏规范要求有哪些内容）</a></p>
+                                        <p>下一个：<a href="/news/article-28355.htm">学宠物美容师需要多少钱（学宠物美容师需要多少钱一个月）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe.htm" title="12月14日|V2ray/SSR/Shadowrocket/Clash每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐">12月14日|V2ray/SSR/Shadowrocket/Clash每天更新21.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-ssr-node.htm" title="10月31日|V2ray/SSR/Shadowrocket/Clash每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐">10月31日|V2ray/SSR/Shadowrocket/Clash每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-25105.htm" title="一片片枫叶落下来就像什么（一片片枫叶随风飘落就像什么）">一片片枫叶落下来就像什么（一片片枫叶随风飘落就像什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-node-share-links.htm" title="10月17日|Shadowrocket/Clash/SSR/V2ray每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐">10月17日|Shadowrocket/Clash/SSR/V2ray每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe.htm" title="10月25日|V2ray/Clash/SSR/Shadowrocket每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐">10月25日|V2ray/Clash/SSR/Shadowrocket每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-15-free-node-subscribe.htm" title="9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接">9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-high-speed-nodes.htm" title="10月20日|SSR/Clash/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，付费节点订阅推荐">10月20日|SSR/Clash/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-subscribe-node.htm" title="12月3日|V2ray/Clash/Shadowrocket/SSR每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐">12月3日|V2ray/Clash/Shadowrocket/SSR每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-ssr-node.htm" title="12月17日|Shadowrocket/V2ray/SSR/Clash每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐">12月17日|Shadowrocket/V2ray/SSR/Clash每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-high-speed-nodes.htm" title="11月12日|Clash/Shadowrocket/SSR/V2ray每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐">11月12日|Clash/Shadowrocket/SSR/V2ray每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
