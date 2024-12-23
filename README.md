@@ -1,4 +1,4 @@
-# 12月22日|Clash/Shadowrocket/V2ray/SSR每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐  更新时间 2024-12-22 11:13:12
+# 12月23日|V2ray/SSR/Shadowrocket/Clash每天更新22.5M/S免费节点订阅链接，付费节点订阅推荐  更新时间 2024-12-23 10:09:31
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://ssrwindows.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,23 @@
 
 ### Clash订阅链接
 
-- https://ssrwindows.github.io/uploads/2024/12/0-20241222.yaml
-- https://ssrwindows.github.io/uploads/2024/12/1-20241222.yaml
-- https://ssrwindows.github.io/uploads/2024/12/2-20241222.yaml
-- https://ssrwindows.github.io/uploads/2024/12/3-20241222.yaml
-- https://ssrwindows.github.io/uploads/2024/12/4-20241222.yml
+- https://ssrwindows.github.io/uploads/2024/12/0-20241223.yaml
+- https://ssrwindows.github.io/uploads/2024/12/1-20241223.yaml
+- https://ssrwindows.github.io/uploads/2024/12/2-20241223.yaml
+- https://ssrwindows.github.io/uploads/2024/12/3-20241223.yaml
+- https://ssrwindows.github.io/uploads/2024/12/4-20241223.yaml
 
 ### V2ray订阅链接
 
-- https://ssrwindows.github.io/uploads/2024/12/0-20241222.txt
-- https://ssrwindows.github.io/uploads/2024/12/1-20241222.txt
-- https://ssrwindows.github.io/uploads/2024/12/2-20241222.txt
-- https://ssrwindows.github.io/uploads/2024/12/3-20241222.txt
-- https://ssrwindows.github.io/uploads/2024/12/4-20241222.txt
+- https://ssrwindows.github.io/uploads/2024/12/0-20241223.txt
+- https://ssrwindows.github.io/uploads/2024/12/1-20241223.txt
+- https://ssrwindows.github.io/uploads/2024/12/2-20241223.txt
+- https://ssrwindows.github.io/uploads/2024/12/3-20241223.txt
+- https://ssrwindows.github.io/uploads/2024/12/4-20241223.txt
+
+### Sing-box订阅链接
+
+- https://ssrwindows.github.io/uploads/2024/12/20241223.json
 
 ## 更多clash节点订阅 ：
 
