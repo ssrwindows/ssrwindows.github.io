@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-46807.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>java开发对controller返回数据统一封装结果集</title>
+        <meta name="description" content="在日常开发中前后端对接一般要约定好某种规则，比如说一个接口甲同学返回code=100表示返回成功数据，乙同学返回code=200表示返回成功数据，就会形成很多各自的规则，前端对接起来也麻烦，因此针对这" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-46807.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="java开发对controller返回数据统一封装结果集" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/9b27b68733b4ef11400c50925421c130.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:17:37" />
+    <meta property="og:updated_time" content="2025-01-27T08:17:37" />
+        <meta property="og:description" content="在日常开发中前后端对接一般要约定好某种规则，比如说一个接口甲同学返回code=100表示返回成功数据，乙同学返回code=200表示返回成功数据，就会形成很多各自的规则，前端对接起来也麻烦，因此针对这" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java开发对controller返回数据统一封装结果集">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                                <a href="/">SSR Windows</a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>java开发对controller返回数据统一封装结果集</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>在日常开发中前后端对接一般要约定好某种规则，比如说一个接口甲同学返回code=100表示返回成功数据，乙同学返回code=200表示返回成功数据，就会形成很多各自的规则，前端对接起来也麻烦，因此针对这种情况要进行同一返回的规则，对code和message进行约定好</p> <p><img fetchpriority="high" decoding="async" alt="" height="147" src="http://img.555519.xyz/uploads3/20220822/269de8c272e3bb84ba81d6e5f81a635a.jpg"></p> <p>用到的工具类如下，可直接拿走：</p> <p><img decoding="async" alt="" height="119" src="http://img.555519.xyz/uploads3/20220822/bb32a9b874d084ca6545cbd5eadae168.jpg"></p> <h3>Result:</h3> <pre><code class="language-java">package com.atguigu.yygh.common.result;  import io.swagger.annotations.ApiModel; import io.swagger.annotations.ApiModelProperty; import lombok.Data;  /**  * 全局统一返回结果类  */ @Data @ApiModel(value = "全局统一返回结果") public class Result&lt;T&gt; {      @ApiModelProperty(value = "返回码")     private Integer code;      @ApiModelProperty(value = "返回消息")     private String message;      @ApiModelProperty(value = "返回数据")     private T data;      public Result(){}      protected static &lt;T&gt; Result&lt;T&gt; build(T data) {         Result&lt;T&gt; result = new Result&lt;T&gt;();         if (data != null)             result.setData(data);         return result;     }      public static &lt;T&gt; Result&lt;T&gt; build(T body, ResultCodeEnum resultCodeEnum) {         Result&lt;T&gt; result = build(body);         result.setCode(resultCodeEnum.getCode());         result.setMessage(resultCodeEnum.getMessage());         return result;     }      public static &lt;T&gt; Result&lt;T&gt; build(Integer code, String message) {         Result&lt;T&gt; result = build(null);         result.setCode(code);         result.setMessage(message);         return result;     }      public static&lt;T&gt; Result&lt;T&gt; ok(){         return Result.ok(null);     }      /**      * 操作成功      * @param data      * @param &lt;T&gt;      * @return      */     public static&lt;T&gt; Result&lt;T&gt; ok(T data){         Result&lt;T&gt; result = build(data);         return build(data, ResultCodeEnum.SUCCESS);     }      public static&lt;T&gt; Result&lt;T&gt; fail(){         return Result.fail(null);     }      /**      * 操作失败      * @param data      * @param &lt;T&gt;      * @return      */     public static&lt;T&gt; Result&lt;T&gt; fail(T data){         Result&lt;T&gt; result = build(data);         return build(data, ResultCodeEnum.FAIL);     }      public Result&lt;T&gt; message(String msg){         this.setMessage(msg);         return this;     }      public Result&lt;T&gt; code(Integer code){         this.setCode(code);         return this;     }      public boolean isOk() {         if(this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) {             return true;         }         return false;     } }</code></pre> <h3>ResultCodeEnum:</h3> <pre><code class="language-java">package com.atguigu.yygh.common.result;  import lombok.Getter;  /**  * 统一返回结果状态信息类  */ @Getter public enum ResultCodeEnum {      SUCCESS(200,"成功"),     FAIL(201, "失败"),     PARAM_ERROR( 202, "参数不正确"),     SERVICE_ERROR(203, "服务异常"),     DATA_ERROR(204, "数据异常"),     DATA_UPDATE_ERROR(205, "数据版本异常"),      LOGIN_AUTH(208, "未登陆"),     PERMISSION(209, "没有权限"),      CODE_ERROR(210, "验证码错误"), //    LOGIN_MOBLE_ERROR(211, "账号不正确"),     LOGIN_DISABLED_ERROR(212, "改用户已被禁用"),     REGISTER_MOBLE_ERROR(213, "手机号已被使用"),     LOGIN_AURH(214, "需要登录"),     LOGIN_ACL(215, "没有权限"),      URL_ENCODE_ERROR( 216, "URL编码失败"),     ILLEGAL_CALLBACK_REQUEST_ERROR( 217, "非法回调请求"),     FETCH_ACCESSTOKEN_FAILD( 218, "获取accessToken失败"),     FETCH_USERINFO_ERROR( 219, "获取用户信息失败"),     //LOGIN_ERROR( 23005, "登录失败"),      PAY_RUN(220, "支付中"),     CANCEL_ORDER_FAIL(225, "取消订单失败"),     CANCEL_ORDER_NO(225, "不能取消预约"),      HOSCODE_EXIST(230, "医院编号已经存在"),     NUMBER_NO(240, "可预约号不足"),     TIME_NO(250, "当前时间不可以预约"),      SIGN_ERROR(300, "签名错误"),     HOSPITAL_OPEN(310, "医院未开通，暂时不能访问"),     HOSPITAL_LOCK(320, "医院被锁定，暂时不能访问"),     PARAM_ILL(555,"参数异常"),     PARAM_ILL2(555,"参数异常2"),     ;      private Integer code;     private String message;      private ResultCodeEnum(Integer code, String message) {         this.code = code;         this.message = message;     } }</code></pre> <h3>controller调用如下所示：</h3> <p><img decoding="async" alt="" height="556" src="http://img.555519.xyz/uploads3/20220822/7a16fc34fb1b93fb0487731b7648ddfb.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46318.htm">小型狗粮加工设备厂家电话 小型狗粮加工设备厂家电话号码</a></p>
+                                        <p>下一个：<a href="/news/article-46808.htm">typescript环境搭建及编译运行</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share-links.htm" title="12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐">12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-37399.htm" title="领养宠物协议书范本大全最新 领养宠物协议书范本大全最新版">领养宠物协议书范本大全最新 领养宠物协议书范本大全最新版</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-clash-v2ray-ss-ssr.htm" title="11月1日|Clash/SSR/Shadowrocket/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐">11月1日|Clash/SSR/Shadowrocket/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-ssr-node.htm" title="10月8日|Shadowrocket/SSR/Clash/V2ray每天更新20.4M/S免费节点订阅链接">10月8日|Shadowrocket/SSR/Clash/V2ray每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20040.htm" title="宠物狗粮网店名字怎么起（宠物狗粮厂）">宠物狗粮网店名字怎么起（宠物狗粮厂）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe.htm" title="1月13日|Clash/SSR/V2ray/Shadowrocket每天更新20.7M/S免费节点订阅链接，付费节点订阅推荐">1月13日|Clash/SSR/V2ray/Shadowrocket每天更新20.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-46318.htm" title="小型狗粮加工设备厂家电话 小型狗粮加工设备厂家电话号码">小型狗粮加工设备厂家电话 小型狗粮加工设备厂家电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-36038.htm" title="猫为什么不用打狂犬（家猫为啥不建议打狂犬）">猫为什么不用打狂犬（家猫为啥不建议打狂犬）</a></li>
+                        <li class="py-2"><a href="/news/article-41849.htm" title="pytorch定义新的自动求导函数">pytorch定义新的自动求导函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-node-share-links.htm" title="11月15日|Shadowrocket/SSR/Clash/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐">11月15日|Shadowrocket/SSR/Clash/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

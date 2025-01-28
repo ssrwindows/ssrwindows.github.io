@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-46808.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>typescript环境搭建及编译运行</title>
+        <meta name="description" content="1.安装node，安装成功后&nbsp; node -v查看node版本 npm -v&nbsp; 查看npm版本。 2.安装typescript包&nbsp; npm install typescr" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-46808.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="typescript环境搭建及编译运行" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/2d236ec84a85b1ff3c0d9a8ca73b5a20.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:17:37" />
+    <meta property="og:updated_time" content="2025-01-27T08:17:37" />
+        <meta property="og:description" content="1.安装node，安装成功后&nbsp; node -v查看node版本 npm -v&nbsp; 查看npm版本。 2.安装typescript包&nbsp; npm install typescr" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="typescript环境搭建及编译运行">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                                <a href="/">SSR Windows</a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>typescript环境搭建及编译运行</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1.安装node，安装成功后&nbsp; node -v查看node版本 npm -v&nbsp; 查看npm版本。</p> <p>2.安装typescript包&nbsp; npm install typescript -g&nbsp; &nbsp; &nbsp; &nbsp;查看ts版本&nbsp; &nbsp;tsc --version</p> <p>3.新建一个文件夹，用于存放tsc代码。</p> <p>&nbsp; &nbsp; 通过ctrl+r输入cmd打开dos命令行，打开存放tsc文件的目录，npm init -y生成package.json。</p> <p>&nbsp; &nbsp; 通过&nbsp; tsc --init 生成tsconfig.json，用于生产tyscript的项目配置文件。</p> <p>4.安装types/node，npm install @types/node --dev-save&nbsp; 这个主要是解决模块的声明文件问题。</p> <p>5.编写HelloWorld.ts文件</p> <pre class="has"><code>var a:string = "Helloworld"; console.log(a);</code></pre> <p>6.在vscode中 可以使用打开运行生成任务，然后选择tsc：构建-tsconfig.json，这时候就会生成一个<code>helloWorld.js</code>文件（如果使用sublime&nbsp; 可以在dos命令行中输入 tcs&nbsp; HelloWorld构建helloworld.js文件）。</p> <p>7.运行node&nbsp; helloworld.js 输出“HelloWorld”，至此，typescript运行环境搭建完成</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46807.htm">java开发对controller返回数据统一封装结果集</a></p>
+                                        <p>下一个：<a href="/news/article-47290.htm">美容现在好做吗（现在这个年头做美容行业有前途没有）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36439.htm" title="Springboot 整合 xxljob 动态API调度任务(进阶篇)">Springboot 整合 xxljob 动态API调度任务(进阶篇)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-node-subscribe.htm" title="11月29日|Clash/V2ray/SSR/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">11月29日|Clash/V2ray/SSR/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-node-share-links.htm" title="11月27日|Clash/Shadowrocket/SSR/V2ray每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">11月27日|Clash/Shadowrocket/SSR/V2ray每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-node-subscribe-links.htm" title="1月18日|Shadowrocket/V2ray/SSR/Clash每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐">1月18日|Shadowrocket/V2ray/SSR/Clash每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-45326.htm" title="基于web的宠物领养系统的设计毕业论文（宠物领养网站源码）">基于web的宠物领养系统的设计毕业论文（宠物领养网站源码）</a></li>
+                        <li class="py-2"><a href="/news/article-41850.htm" title="养猫咪打针多少钱（养猫咪打针多少钱一次）">养猫咪打针多少钱（养猫咪打针多少钱一次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-v2ray-ss-ssr.htm" title="11月10日|V2ray/Shadowrocket/Clash/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐">11月10日|V2ray/Shadowrocket/Clash/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-clash-v2ray-ss-ssr.htm" title="11月4日|Clash/V2ray/Shadowrocket/SSR每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐">11月4日|Clash/V2ray/Shadowrocket/SSR每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-46318.htm" title="小型狗粮加工设备厂家电话 小型狗粮加工设备厂家电话号码">小型狗粮加工设备厂家电话 小型狗粮加工设备厂家电话号码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-ssr-node.htm" title="10月15日|SSR/Clash/Shadowrocket/V2ray每天更新22M/S免费节点订阅链接，付费节点订阅推荐">10月15日|SSR/Clash/Shadowrocket/V2ray每天更新22M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
