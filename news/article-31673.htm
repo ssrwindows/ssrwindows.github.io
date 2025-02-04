@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://ssrwindows.github.io/news/article-31673.htm" />
@@ -8,15 +8,43 @@
     <title>使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA</title>
         <meta name="description" content="什么是 PostgreSQL HA？ 此 PostgreSQL 集群解决方案包括 PostgreSQL 复制管理器(replication manager)，这是一种用于管理 PostgreSQL 集" />
         <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-31673.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/cf99516b698b6bd846f2e5d026d5e157.webp" />
+        <meta property="og:release_date" content="2024-12-27T10:01:52" />
+    <meta property="og:updated_time" content="2024-12-27T10:01:52" />
+        <meta property="og:description" content="什么是 PostgreSQL HA？ 此 PostgreSQL 集群解决方案包括 PostgreSQL 复制管理器(replication manager)，这是一种用于管理 PostgreSQL 集" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-node-share-links.htm" title="12月2日|V2ray/Shadowrocket/Clash/SSR每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐">12月2日|V2ray/Shadowrocket/Clash/SSR每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-ssr-node.htm" title="10月15日|SSR/Clash/Shadowrocket/V2ray每天更新22M/S免费节点订阅链接，付费节点订阅推荐">10月15日|SSR/Clash/Shadowrocket/V2ray每天更新22M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-node-share.htm" title="9月24日|Clash/Shadowrocket/SSR/V2ray每天更新19.4M/S免费节点订阅链接">9月24日|Clash/Shadowrocket/SSR/V2ray每天更新19.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33572.htm" title="天津宠物狗领养中心电话地址（天津宠物领养中心在哪?）">天津宠物狗领养中心电话地址（天津宠物领养中心在哪?）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share-links.htm" title="12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐">12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-free-node-subscribe.htm" title="9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接">9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-23-node-share.htm" title="10月23日|V2ray/SSR/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接，付费节点订阅推荐">10月23日|V2ray/SSR/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-ssr-node.htm" title="10月31日|V2ray/SSR/Shadowrocket/Clash每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐">10月31日|V2ray/SSR/Shadowrocket/Clash每天更新18.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-node-subscribe-links.htm" title="10月10日|Clash/SSR/V2ray/Shadowrocket每天更新21.8M/S免费节点订阅链接">10月10日|Clash/SSR/V2ray/Shadowrocket每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43849.htm" title="动物疫苗那里买（动物疫苗厂家有哪些）">动物疫苗那里买（动物疫苗厂家有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-high-speed-nodes.htm" title="12月9日|V2ray/SSR/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐">12月9日|V2ray/SSR/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-ssr-node.htm" title="11月23日|SSR/V2ray/Shadowrocket/Clash每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐">11月23日|SSR/V2ray/Shadowrocket/Clash每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-clash-v2ray-ss-ssr.htm" title="12月31日|SSR/Shadowrocket/Clash/V2ray每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">12月31日|SSR/Shadowrocket/Clash/V2ray每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-37899.htm" title="动物疫苗类型有哪几种种类（动物疫苗的种类和制备原理）">动物疫苗类型有哪几种种类（动物疫苗的种类和制备原理）</a></li>
+                        <li class="py-2"><a href="/news/article-40360.htm" title="猫咪3针疫苗间隔多久打一次好一点（猫三针疫苗间隔多久打）">猫咪3针疫苗间隔多久打一次好一点（猫三针疫苗间隔多久打）</a></li>
+                        <li class="py-2"><a href="/news/article-19126.htm" title="被猫抓了如何判断得没得狂犬（被猫抓了如何判断得没得狂犬病）">被猫抓了如何判断得没得狂犬（被猫抓了如何判断得没得狂犬病）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-ssr-node.htm" title="1月24日|V2ray/Shadowrocket/SSR/Clash每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">1月24日|V2ray/Shadowrocket/SSR/Clash每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-46808.htm" title="typescript环境搭建及编译运行">typescript环境搭建及编译运行</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share.htm" title="1月26日|Clash/SSR/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐">1月26日|Clash/SSR/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -106,25 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

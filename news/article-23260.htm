@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://ssrwindows.github.io/news/article-23260.htm" />
@@ -8,15 +8,43 @@
     <title>二叉树与堆</title>
         <meta name="description" content="树的定义  树是一种数据结构，树结构只有一个根节点，除根节点外，其余节点被分成M(M&gt;0) 个互不相交的集合T1,T2,T3,......,Tm. 其中每一个集合Ti(1 &lt; i &lt;" />
         <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-23260.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="二叉树与堆" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/88286ecf70e40c96503cda434bb99034.webp" />
+        <meta property="og:release_date" content="2024-12-09T10:27:06" />
+    <meta property="og:updated_time" content="2024-12-09T10:27:06" />
+        <meta property="og:description" content="树的定义  树是一种数据结构，树结构只有一个根节点，除根节点外，其余节点被分成M(M&gt;0) 个互不相交的集合T1,T2,T3,......,Tm. 其中每一个集合Ti(1 &lt; i &lt;" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="二叉树与堆">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31673.htm" title="使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA">使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-1-node-share-links.htm" title="8月1日|Shadowrocket/V2ray/SSR/Clash每天更新20.8M/S免费节点订阅链接">8月1日|Shadowrocket/V2ray/SSR/Clash每天更新20.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-1-node-share-links.htm" title="9月1日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接">9月1日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-ssr-subscribe.htm" title="11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe-links.htm" title="9月20日|V2ray/Clash/SSR/Shadowrocket每天更新22.2M/S免费节点订阅链接">9月20日|V2ray/Clash/SSR/Shadowrocket每天更新22.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19583.htm" title="做梦梦到海豹追过来（梦见海豹追我）">做梦梦到海豹追过来（梦见海豹追我）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-ssr-node.htm" title="11月21日|Clash/Shadowrocket/V2ray/SSR每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐">11月21日|Clash/Shadowrocket/V2ray/SSR每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-ssr-subscribe.htm" title="9月2日|Clash/Shadowrocket/SSR/V2ray每天更新18.6M/S免费节点订阅链接">9月2日|Clash/Shadowrocket/SSR/V2ray每天更新18.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-subscribe-node.htm" title="11月3日|V2ray/Clash/SSR/Shadowrocket每天更新20.4M/S免费节点订阅链接，付费节点订阅推荐">11月3日|V2ray/Clash/SSR/Shadowrocket每天更新20.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-ssr-node.htm" title="10月29日|SSR/Shadowrocket/V2ray/Clash每天更新20M/S免费节点订阅链接，付费节点订阅推荐">10月29日|SSR/Shadowrocket/V2ray/Clash每天更新20M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-36440.htm" title="宠物领养合同违约金3000合法吗知乎 宠物领养合同违约金3000合法吗知乎">宠物领养合同违约金3000合法吗知乎 宠物领养合同违约金3000合法吗知乎</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-ssr-subscribe.htm" title="12月26日|Clash/V2ray/SSR/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐">12月26日|Clash/V2ray/SSR/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-40361.htm" title="宠物粮食成本分析表（宠物粮食原材料）">宠物粮食成本分析表（宠物粮食原材料）</a></li>
+                        <li class="py-2"><a href="/news/article-25564.htm" title="安安宠物中心医院干将路电话（安安宠物医院营业时间）">安安宠物中心医院干将路电话（安安宠物医院营业时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐">1月12日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-49280.htm" title="学宠物美容有前途吗女生多少岁（学宠物美容有前途吗女生多少岁可以学）">学宠物美容有前途吗女生多少岁（学宠物美容有前途吗女生多少岁可以学）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-high-speed-nodes.htm" title="12月7日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">12月7日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-37899.htm" title="动物疫苗类型有哪几种种类（动物疫苗的种类和制备原理）">动物疫苗类型有哪几种种类（动物疫苗的种类和制备原理）</a></li>
+                        <li class="py-2"><a href="/news/article-30239.htm" title="快手无货源店铺是怎么发货的（快手开店无货源怎么做?）">快手无货源店铺是怎么发货的（快手开店无货源怎么做?）</a></li>
+                        <li class="py-2"><a href="/news/article-41850.htm" title="养猫咪打针多少钱（养猫咪打针多少钱一次）">养猫咪打针多少钱（养猫咪打针多少钱一次）</a></li>
                     </ul>
     </div>
 </div>
@@ -106,25 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

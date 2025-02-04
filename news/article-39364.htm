@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://ssrwindows.github.io/news/article-39364.htm" />
@@ -8,15 +8,43 @@
     <title>java Socket 一行一行地读和一行一行的写</title>
         <meta name="description" content="最近在写与socket有关的编程，遇到了一个问题——如何一行一行的从服务器文件读出来，然后通过socket发到客户端，在客户端有一行一行的写入文件。刚开始，一行一行的读是没有什么问题的，可是流发到客户" />
         <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-39364.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="java Socket 一行一行地读和一行一行的写" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/2d236ec84a85b1ff3c0d9a8ca73b5a20.webp" />
+        <meta property="og:release_date" content="2025-01-12T09:57:55" />
+    <meta property="og:updated_time" content="2025-01-12T09:57:55" />
+        <meta property="og:description" content="最近在写与socket有关的编程，遇到了一个问题——如何一行一行的从服务器文件读出来，然后通过socket发到客户端，在客户端有一行一行的写入文件。刚开始，一行一行的读是没有什么问题的，可是流发到客户" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java Socket 一行一行地读和一行一行的写">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20040.htm" title="宠物狗粮网店名字怎么起（宠物狗粮厂）">宠物狗粮网店名字怎么起（宠物狗粮厂）</a></li>
-                        <li class="py-2"><a href="/news/article-30709.htm" title="动物医院好评模板范文图片高清（动物医院大众点评评语）">动物医院好评模板范文图片高清（动物医院大众点评评语）</a></li>
-                        <li class="py-2"><a href="/news/article-26014.htm" title="EFCore 的 DbFirst 模式">EFCore 的 DbFirst 模式</a></li>
-                        <li class="py-2"><a href="/news/article-23258.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-25-node-share.htm" title="12月25日|Shadowrocket/Clash/SSR/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">12月25日|Shadowrocket/Clash/SSR/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-node-subscribe-links.htm" title="1月1日|Shadowrocket/SSR/V2ray/Clash每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐">1月1日|Shadowrocket/SSR/V2ray/Clash每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-22330.htm" title="兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）">兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-high-speed-nodes.htm" title="12月7日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">12月7日|SSR/Clash/V2ray/Shadowrocket每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-21871.htm" title="和田宠物医院污水处理 和田宠物医院污水处理项目">和田宠物医院污水处理 和田宠物医院污水处理项目</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe.htm" title="10月25日|V2ray/Clash/SSR/Shadowrocket每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐">10月25日|V2ray/Clash/SSR/Shadowrocket每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe.htm" title="1月13日|Clash/SSR/V2ray/Shadowrocket每天更新20.7M/S免费节点订阅链接，付费节点订阅推荐">1月13日|Clash/SSR/V2ray/Shadowrocket每天更新20.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-ssr-subscribe.htm" title="11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">11月9日|Clash/SSR/Shadowrocket/V2ray每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-45837.htm" title="宠物粮食专卖店在哪里啊 宠物粮食专卖店在哪里啊多少钱">宠物粮食专卖店在哪里啊 宠物粮食专卖店在哪里啊多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-26954.htm" title="北京宠爱国际动物医疗机构有限公司招聘信息（北京宠爱国际动物医疗机构有限公司招聘信息）">北京宠爱国际动物医疗机构有限公司招聘信息（北京宠爱国际动物医疗机构有限公司招聘信息）</a></li>
+                        <li class="py-2"><a href="/news/article-21407.htm" title="Tomcat 部署 Web项目以及更改项目名">Tomcat 部署 Web项目以及更改项目名</a></li>
+                        <li class="py-2"><a href="/news/article-36439.htm" title="Springboot 整合 xxljob 动态API调度任务(进阶篇)">Springboot 整合 xxljob 动态API调度任务(进阶篇)</a></li>
+                        <li class="py-2"><a href="/news/article-33571.htm" title="JAVA程序进阶——LocalDate、LocalTime、LocalDateTime">JAVA程序进阶——LocalDate、LocalTime、LocalDateTime</a></li>
+                        <li class="py-2"><a href="/news/article-33572.htm" title="天津宠物狗领养中心电话地址（天津宠物领养中心在哪?）">天津宠物狗领养中心电话地址（天津宠物领养中心在哪?）</a></li>
+                        <li class="py-2"><a href="/news/article-36914.htm" title="动物疫苗接种方法及注意事项有哪些呢英语（动物疫苗接种方法及注意事项有哪些呢英语翻译）">动物疫苗接种方法及注意事项有哪些呢英语（动物疫苗接种方法及注意事项有哪些呢英语翻译）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-node-subscribe-links.htm" title="2月1日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接，付费节点订阅推荐">2月1日|Clash/SSR/V2ray/Shadowrocket每天更新19.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -106,16 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

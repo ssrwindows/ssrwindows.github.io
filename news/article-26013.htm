@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://ssrwindows.github.io/news/article-26013.htm" />
@@ -8,15 +8,43 @@
     <title>Springboot2整合activemq</title>
         <meta name="description" content="小结 这两天过一下springboot中的一些东西，居然看到有结合队列的内容，顺便拿来学一下。但是感觉自己学+做之后，掌握还是不太到位，具体是哪里不到位，是流程吗，还是操作细节。MQ就是消息缓存中间件" />
         <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-26013.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="Springboot2整合activemq" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/e0ee546d7c1c30ac76ee9c7efdef792c.webp" />
+        <meta property="og:release_date" content="2024-12-15T10:44:21" />
+    <meta property="og:updated_time" content="2024-12-15T10:44:21" />
+        <meta property="og:description" content="小结 这两天过一下springboot中的一些东西，居然看到有结合队列的内容，顺便拿来学一下。但是感觉自己学+做之后，掌握还是不太到位，具体是哪里不到位，是流程吗，还是操作细节。MQ就是消息缓存中间件" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot2整合activemq">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-high-speed-nodes.htm" title="10月5日|V2ray/SSR/Clash/Shadowrocket每天更新23M/S免费节点订阅链接">10月5日|V2ray/SSR/Clash/Shadowrocket每天更新23M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-4-clash-v2ray-ss-ssr.htm" title="11月4日|Clash/V2ray/Shadowrocket/SSR每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐">11月4日|Clash/V2ray/Shadowrocket/SSR每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-v2ray-ss-ssr.htm" title="11月10日|V2ray/Shadowrocket/Clash/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐">11月10日|V2ray/Shadowrocket/Clash/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-31158.htm" title="CSS3怎么为文字添加背景?">CSS3怎么为文字添加背景?</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-clash-v2ray-ss-ssr.htm" title="9月11日|SSR/V2ray/Shadowrocket/Clash每天更新20.8M/S免费节点订阅链接">9月11日|SSR/V2ray/Shadowrocket/Clash每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32152.htm" title="Vue项目中添加一些独立的静态资源（内嵌独立静态页面等）">Vue项目中添加一些独立的静态资源（内嵌独立静态页面等）</a></li>
+                        <li class="py-2"><a href="/news/article-46808.htm" title="typescript环境搭建及编译运行">typescript环境搭建及编译运行</a></li>
+                        <li class="py-2"><a href="/news/article-25106.htm" title="佳雯宠物医院几点开门营业（佳雯宠物医院环城西路）">佳雯宠物医院几点开门营业（佳雯宠物医院环城西路）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-subscribe-node.htm" title="1月7日|V2ray/Clash/SSR/Shadowrocket每天更新22.8M/S免费节点订阅链接，付费节点订阅推荐">1月7日|V2ray/Clash/SSR/Shadowrocket每天更新22.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-42853.htm" title="动物疫苗的种类和研发过程包括哪些内容和方法（动物疫苗的生产原料有哪些,如何取得）">动物疫苗的种类和研发过程包括哪些内容和方法（动物疫苗的生产原料有哪些,如何取得）</a></li>
                         <li class="py-2"><a href="/news/article-29284.htm" title="属马养猫运气会变差吗（属马的能养猫咪吗）">属马养猫运气会变差吗（属马的能养猫咪吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-ssr-node.htm" title="11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/news/article-23258.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
-                        <li class="py-2"><a href="/news/article-19126.htm" title="被猫抓了如何判断得没得狂犬（被猫抓了如何判断得没得狂犬病）">被猫抓了如何判断得没得狂犬（被猫抓了如何判断得没得狂犬病）</a></li>
-                        <li class="py-2"><a href="/news/article-33087.htm" title="养猫需要打哪些疫苗多少钱（养猫需要打预防针吗,多长时间打一次?）">养猫需要打哪些疫苗多少钱（养猫需要打预防针吗,多长时间打一次?）</a></li>
+                        <li class="py-2"><a href="/news/article-36440.htm" title="宠物领养合同违约金3000合法吗知乎 宠物领养合同违约金3000合法吗知乎">宠物领养合同违约金3000合法吗知乎 宠物领养合同违约金3000合法吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-36913.htm" title="【java】关于sc.hasNext()在while语句中的使用">【java】关于sc.hasNext()在while语句中的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-high-speed-nodes.htm" title="12月20日|Clash/V2ray/SSR/Shadowrocket每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐">12月20日|Clash/V2ray/SSR/Shadowrocket每天更新20.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-19584.htm" title="起重葫芦品牌 手拉葫芦什么牌子好用点(起重葫芦品牌 手拉葫芦什么牌子好用)">起重葫芦品牌 手拉葫芦什么牌子好用点(起重葫芦品牌 手拉葫芦什么牌子好用)</a></li>
                     </ul>
     </div>
 </div>
@@ -106,25 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

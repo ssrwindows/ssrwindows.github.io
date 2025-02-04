@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://ssrwindows.github.io/news/article-27890.htm" />
@@ -8,15 +8,43 @@
     <title>使用 shell 脚本自动获取发版指标数据</title>
         <meta name="description" content="问题背景 大一点的公司都会建立一套规章流程来避免低级错误，例如合入代码前必需经过同行评审；上线前必需提测且通过 QA 验证；全量前必需经过 1%、5%、10%、20%、50% 的灰度过程。尤其是最后一" />
         <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-27890.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="使用 shell 脚本自动获取发版指标数据" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/2d236ec84a85b1ff3c0d9a8ca73b5a20.webp" />
+        <meta property="og:release_date" content="2024-12-19T09:55:03" />
+    <meta property="og:updated_time" content="2024-12-19T09:55:03" />
+        <meta property="og:description" content="问题背景 大一点的公司都会建立一套规章流程来避免低级错误，例如合入代码前必需经过同行评审；上线前必需提测且通过 QA 验证；全量前必需经过 1%、5%、10%、20%、50% 的灰度过程。尤其是最后一" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用 shell 脚本自动获取发版指标数据">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21407.htm" title="Tomcat 部署 Web项目以及更改项目名">Tomcat 部署 Web项目以及更改项目名</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-ssr-subscribe.htm" title="12月22日|SSR/Clash/V2ray/Shadowrocket每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐">12月22日|SSR/Clash/V2ray/Shadowrocket每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-ssr-node.htm" title="11月21日|Clash/Shadowrocket/V2ray/SSR每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐">11月21日|Clash/Shadowrocket/V2ray/SSR每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-18-free-high-speed-nodes.htm" title="9月18日|Clash/SSR/Shadowrocket/V2ray每天更新21.4M/S免费节点订阅链接">9月18日|Clash/SSR/Shadowrocket/V2ray每天更新21.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-node-subscribe.htm" title="10月19日|V2ray/SSR/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐">10月19日|V2ray/SSR/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-7-free-node-subscribe-links.htm" title="8月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.1M/S免费节点订阅链接">8月7日|Shadowrocket/V2ray/SSR/Clash每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-free-node-subscribe-links.htm" title="8月24日|V2ray/SSR/Shadowrocket/Clash每天更新21.5M/S免费节点订阅链接">8月24日|V2ray/SSR/Shadowrocket/Clash每天更新21.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-subscribe-node.htm" title="11月8日|SSR/V2ray/Clash/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐">11月8日|SSR/V2ray/Clash/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-free-node-subscribe.htm" title="9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接">9月15日|SSR/Shadowrocket/V2ray/Clash每天更新22.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-ssr-subscribe.htm" title="11月7日|Shadowrocket/Clash/SSR/V2ray每天更新19.8M/S免费节点订阅链接，付费节点订阅推荐">11月7日|Shadowrocket/Clash/SSR/V2ray每天更新19.8M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-33087.htm" title="养猫需要打哪些疫苗多少钱（养猫需要打预防针吗,多长时间打一次?）">养猫需要打哪些疫苗多少钱（养猫需要打预防针吗,多长时间打一次?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-node-subscribe.htm" title="12月6日|V2ray/Shadowrocket/SSR/Clash每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">12月6日|V2ray/Shadowrocket/SSR/Clash每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe.htm" title="1月15日|SSR/Shadowrocket/V2ray/Clash每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐">1月15日|SSR/Shadowrocket/V2ray/Clash每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-39874.htm" title="重庆宠物领养贴吧论坛官网（重庆宠物领养重庆宠物赠送）">重庆宠物领养贴吧论坛官网（重庆宠物领养重庆宠物赠送）</a></li>
+                        <li class="py-2"><a href="/news/article-30239.htm" title="快手无货源店铺是怎么发货的（快手开店无货源怎么做?）">快手无货源店铺是怎么发货的（快手开店无货源怎么做?）</a></li>
+                        <li class="py-2"><a href="/news/article-26013.htm" title="Springboot2整合activemq">Springboot2整合activemq</a></li>
+                        <li class="py-2"><a href="/news/article-37399.htm" title="领养宠物协议书范本大全最新 领养宠物协议书范本大全最新版">领养宠物协议书范本大全最新 领养宠物协议书范本大全最新版</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-ssr-node.htm" title="11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">11月26日|Clash/SSR/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44831.htm" title="宠物寄养协议合同范本图片下载（寄养宠物协议合同怎么写）">宠物寄养协议合同范本图片下载（寄养宠物协议合同怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-node-share-links.htm" title="11月15日|Shadowrocket/SSR/Clash/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐">11月15日|Shadowrocket/SSR/Clash/V2ray每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -106,25 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
