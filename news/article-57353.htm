@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-57353.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Vue前端js循环遍历数组八种方法总结最新</title>
+        <meta name="description" content="前五种常用，第三种个人觉得常用最多，自己复制代码打印试试 var arr = [1, 2, 3, 4, 5, 6];      // 第一种   for循环遍历     var newArr = []" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-57353.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="Vue前端js循环遍历数组八种方法总结最新" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/3804fa6e25c1af61a48862deb7c90387.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:20" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:20" />
+        <meta property="og:description" content="前五种常用，第三种个人觉得常用最多，自己复制代码打印试试 var arr = [1, 2, 3, 4, 5, 6];      // 第一种   for循环遍历     var newArr = []" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue前端js循环遍历数组八种方法总结最新">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>SSR Windows</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Vue前端js循环遍历数组八种方法总结最新</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><strong>前五种常用，第三种个人觉得常用最多，自己复制代码打印试试</strong></p> <pre><code>var arr = [1, 2, 3, 4, 5, 6];      // 第一种   for循环遍历     var newArr = [];     for(var i = 0; i &lt; arr.length; i++){       newArr.push(arr[i])       console.log(newArr)     }      // 第二种 es6语法  arr.forEach()遍历     var newArr = [];     arr.forEach((item) =&gt; {       newArr.push(arr[item])       console.log(newArr)     })      // 第三种   Object.keys()遍历     // (个人推荐比较好用：枚举方法)   (返回一个数组,包括对象自身的(不含继承的)所有可枚举属性(不含Symbol属性).)     var newArr = [];     Object.keys(arr).forEach((item) =&gt; {       newArr.push(arr[item])       console.log(newArr)     })        // 第四种   arr.map(function callback(currentValue[, index[, array]]) 或者这样 array.map(item,index,arr)      // currentValue: callback一系列中正在处理的当前元素 index: callback一系列中正在处理的当前元素的索引。array:  map 调用方法的目录     var newArr = []     arr.map((item) =&gt; {       newArr.push(arr[item])       console.log(newArr)     })      // 第五种   for...in...遍历     //  循环遍历对象自身的和继承的可枚举属性(循环遍历对象自身的和继承的可枚举属性(不含Symbol属性).).     var newArr = []     for(var i in arr ) {       newArr.push(arr[i])       console.log(newArr,'1111111')     }      // 第六种   for-of遍历     //不仅支持数组,还支持大多数类数组对象,例如DOM NodeList对象.     //也支持字符串遍历,它将字符串视为一系列的Unicode字符来进行遍历.     var newArr = []     for(var i of arr){       newArr.push(arr[i])       console.log(newArr)     }      // 第七种   Object.getOwnPropertyNames(obj) 遍历     //  返回一个数组,包含对象自身的所有属性(不含Symbol属性,但是包括不可枚举属性).     var newArr = [];     Object.getOwnPropertyNames(arr).forEach((item) =&gt; {       newArr.push(arr[item])       console.log(newArr,'!!!!')     })      // 第八种   Reflect.ownKeys(obj)遍历       // 返回一个数组,包含对象自身的所有属性,不管属性名是Symbol或字符串,也不管是否可枚举.     var newArr = [];     Reflect.ownKeys(arr).forEach((item) =&gt; {       newArr.push(arr[item])       console.log(newArr)        //  数组可以全部打印出来特别！！！！     })</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57352.htm">Redis的内存淘汰机制和删除策略</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-subscribe-node.htm" title="11月11日|V2ray/Clash/Shadowrocket/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐">11月11日|V2ray/Clash/Shadowrocket/SSR每天更新19M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-32619.htm" title="C语言进阶——数据的存储">C语言进阶——数据的存储</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">11月24日|SSR/V2ray/Clash/Shadowrocket每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-44334.htm" title="宠物用品生产厂家哪个城市比较多（宠物用品哪里生产的多）">宠物用品生产厂家哪个城市比较多（宠物用品哪里生产的多）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-node-share-links.htm" title="12月2日|V2ray/Shadowrocket/Clash/SSR每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐">12月2日|V2ray/Shadowrocket/Clash/SSR每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-41849.htm" title="pytorch定义新的自动求导函数">pytorch定义新的自动求导函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share.htm" title="1月29日|Shadowrocket/SSR/V2ray/Clash每天更新21.5M/S免费节点订阅链接，付费节点订阅推荐">1月29日|Shadowrocket/SSR/V2ray/Clash每天更新21.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-24178.htm" title="兰州在哪里买狗（兰州在哪里买狗比较好）">兰州在哪里买狗（兰州在哪里买狗比较好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-node-share-links.htm" title="1月3日|SSR/V2ray/Shadowrocket/Clash每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">1月3日|SSR/V2ray/Shadowrocket/Clash每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-subscribe-node.htm" title="11月8日|SSR/V2ray/Clash/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐">11月8日|SSR/V2ray/Clash/Shadowrocket每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-57352.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Redis的内存淘汰机制和删除策略</title>
+        <meta name="description" content="Redis内存淘汰机制  Redis内存淘汰指的是用户存储的一些键被可以被Redis主动地从实例中删除。内存的淘汰机制的初衷是为了更好地使用内存。  配置  我们可以通过配置redis.conf中的m" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-57352.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="Redis的内存淘汰机制和删除策略" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/2d236ec84a85b1ff3c0d9a8ca73b5a20.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:20" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:20" />
+        <meta property="og:description" content="Redis内存淘汰机制  Redis内存淘汰指的是用户存储的一些键被可以被Redis主动地从实例中删除。内存的淘汰机制的初衷是为了更好地使用内存。  配置  我们可以通过配置redis.conf中的m" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redis的内存淘汰机制和删除策略">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>SSR Windows</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Redis的内存淘汰机制和删除策略</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <h2><a id="Redis_0" rel="nofollow"></a>Redis内存淘汰机制</h2> </blockquote> <p>Redis内存淘汰指的是用户存储的一些键被可以被Redis主动地从实例中删除。内存的淘汰机制的初衷是为了更好地使用内存。</p> <blockquote> <p>配置</p> </blockquote> <p>我们可以通过配置redis.conf中的maxmemory这个值来开启内存淘汰功能，这个值的大小一般设置为Redis容量的15%-30%，因为我们查询的数据大部分都在这15%-30%，我们只缓存这么多的数据，兼顾访问性能和内存空间开销。<br /> 同时Redis也支持<code>运行期间修改淘汰策略</code>，这使得我们不需要重启Redis实例而实时的调整内存淘汰策略。<br /> 设置命令：<code>config set maxmemory 5gb</code>（设置5GB为例）<br /> 查看命令：<code>config get maxmemory</code></p> <blockquote> <p>淘汰策略在 Redis 4.0 版本之前有 6 种策略，4.0 增加了 2种，主要新增了 LFU 算法。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220828/c2199bf244f86f6dae340b99e06129d4.jpg" alt="Redis的内存淘汰机制和删除策略"></p> </blockquote> <p>淘汰策略配置：<code>maxmemory-policy noeviction</code><br /> 修改配置文件：<code>config set maxmemory-policy allkeys-lru</code><br /> 它们的触发条件都是Redis使用的内存达到阈值时。<br /> 应用场景：但是需要注意，将key设置过期时间实际上会消耗更多的内存，因此我们建议使用allkeys-lru策略从而更有效率的使用内存。<br /> volatile-lru策略和volatile-random策略适合我们将一个Redis实例既应用于缓存和又应用于持久化存储的时候。<br /> allkeys-random：如果我们的应用对于缓存key的访问概率相等，则可以使用这个策略。</p> <blockquote> <p>底层算法<br /> LRU 全称是 Least Recently Used，即最近最少使用，会将最不常用的数据筛选出来，保留最近频繁使用的数据。<br /> LRU 会把所有数据组成一个链表，链表头部称为 MRU，代表最近最常使用的数据；尾部称为 LRU代表最近最不常使用的数据；<br /> LFU 全称 Least Frequently Used，即最不经常使用策略，它是基于数据访问次数来淘汰数据的，在 Redis 4.0 时添加进来。它在 LRU 策略基础上，为每个数据增加了一个计数器，来统计这个数据的访问次数。<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/378813918"  rel="nofollow">参考文章</a></p> </blockquote> <blockquote> <h2><a id="Redis_28" rel="nofollow"></a>Redis的删除策略</h2> </blockquote> <p>Redis的每个Key都可以设置一个过期时间，当达到过期时间的时候，这个key就会被自动删除。这就是Redis的过期策略。</p> <p><strong>Redis使用<code>懒惰删除</code>+<code>定期删除</code>相结合的方式处理过期的key。</strong></p> <blockquote> <p>懒惰删除</p> </blockquote> <p>所谓懒惰删除就是在客户端访问该key的时候，redis会对key的过期时间进行检查，如果过期了就立即删除。<br /> 优点：在访问的时候检查key的过期时间，不会占用太多的额外CPU资源。<br /> 缺点：如果一个key已经过期了，如果长时间没有被访问，那么这个key就会一直存留在内存之中，严重消耗了内存资源。</p> <blockquote> <p>定期删除</p> </blockquote> <p>Redis会将所有设置了过期时间的key放入一个字典中，然后<code>默认每隔100ms</code>从字典中随机一些key检查过期时间并删除已过期的key。在Redis2.8版本后，可以通过修改配置文件redis.conf 的 hz 选项来调整这个扫描的次数。<br /> 扫描的过程如下：<br /> 1、从过期字典中随机20个key<br /> 2、删除这20个key中已过期的<br /> 3、如果超过25%的key过期，则重复第一步<br /> 同时，为了保证不出现循环过度的情况，Redis还设置了扫描的时间上限，默认不会超过25ms。</p> <ul> <li>Redis中同时使用了惰性过期和定期过期两种过期策略。</li> </ul> <p>假设Redis当前存放30万个key，并且都设置了过期时间，如果你每隔100ms就去检查这全部的key，CPU负载会特别高，最后可能会挂掉。因此，redis采取的是定期过期，每隔100ms就随机抽取一定数量的key来检查和删除的。但是呢，最后可能会有很多已经过期的key没被删除。这时候，redis采用惰性删除。在你获取某个key的时候，redis会检查一下，这个key如果设置了过期时间并且已经过期了，此时就会删除。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56787.htm">益丰宠物医院怎么样收费（益丰宠物医院电话）</a></p>
+                                        <p>下一个：<a href="/news/article-57353.htm">Vue前端js循环遍历数组八种方法总结最新</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32620.htm" title="宠物粮食市场规模分析 宠物粮食市场规模分析报告">宠物粮食市场规模分析 宠物粮食市场规模分析报告</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-ssr-node.htm" title="1月4日|Clash/V2ray/SSR/Shadowrocket每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐">1月4日|Clash/V2ray/SSR/Shadowrocket每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-node-share.htm" title="1月27日|Clash/Shadowrocket/SSR/V2ray每天更新18M/S免费节点订阅链接，付费节点订阅推荐">1月27日|Clash/Shadowrocket/SSR/V2ray每天更新18M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-ssr-node.htm" title="1月24日|V2ray/Shadowrocket/SSR/Clash每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">1月24日|V2ray/Shadowrocket/SSR/Clash每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-57353.htm" title="Vue前端js循环遍历数组八种方法总结最新">Vue前端js循环遍历数组八种方法总结最新</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-node-subscribe-links.htm" title="11月6日|SSR/Shadowrocket/Clash/V2ray每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐">11月6日|SSR/Shadowrocket/Clash/V2ray每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-23258.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-node-share.htm" title="1月12日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐">1月12日|Shadowrocket/V2ray/SSR/Clash每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-27427.htm" title="动物疫苗的作用有哪些种类 动物疫苗的作用有哪些种类的">动物疫苗的作用有哪些种类 动物疫苗的作用有哪些种类的</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-clash-v2ray-ss-ssr.htm" title="12月11日|Shadowrocket/V2ray/Clash/SSR每天更新20.2M/S免费节点订阅链接，付费节点订阅推荐">12月11日|Shadowrocket/V2ray/Clash/SSR每天更新20.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
