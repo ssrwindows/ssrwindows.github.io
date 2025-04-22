@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://ssrwindows.github.io/news/article-99907.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>笔记：Linux命令（目录和文件管理）</title>
+        <meta name="description" content="一、概述： Linux目录结构 常见子目录的作用 /root 系统管理员root的宿主目录 /home 普通用户的宿主目录 /boot 系统内核，启动文件 /dev 设备文件 /etc 配置文件 /b" />
+        <link rel="icon" href="/assets/website/img/ssrwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSR Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://ssrwindows.github.io/news/article-99907.htm" />
+    <meta property="og:site_name" content="SSR Windows免费节点订阅站" />
+    <meta property="og:title" content="笔记：Linux命令（目录和文件管理）" />
+    <meta property="og:image" content="https://ssrwindows.github.io/uploads/20240730/0fa65520b08155351b2c9af33477579f.webp" />
+        <meta property="og:release_date" content="2025-04-20T09:02:00" />
+    <meta property="og:updated_time" content="2025-04-20T09:02:00" />
+        <meta property="og:description" content="一、概述： Linux目录结构 常见子目录的作用 /root 系统管理员root的宿主目录 /home 普通用户的宿主目录 /boot 系统内核，启动文件 /dev 设备文件 /etc 配置文件 /b" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="笔记：Linux命令（目录和文件管理）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/ssrwindows/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/ssrwindows/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKEBF5GLS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RSKEBF5GLS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>SSR Windows</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs" style="margin-top: 5rem;">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>笔记：Linux命令（目录和文件管理）</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= Details Section ======= -->
+        <section id="details" class="details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>一、概述：</h2> <p>Linux目录结构<br /> 常见子目录的作用<br /> /root 系统管理员root的宿主目录<br /> /home 普通用户的宿主目录<br /> /boot 系统内核，启动文件<br /> /dev 设备文件<br /> /etc 配置文件<br /> /bin 所有用户可执行的用户<br /> /sbin 管理员可执行的命令<br /> /usr 应用程序<br /> /var 日志文件等</p> <h2> <a id="_14" rel="nofollow"></a>二、查看及检索文件</h2> <h3> <a id="1_16" rel="nofollow"></a>1、查看文件内容</h3> <p>(1)cat命令 显示并连接文件的内容（用于文件较小的）<br /> 语法：cat 选项 文件名<br /> (2)more和less命令 分页查看文件内容（less扩展内容更多）<br /> 语法：more/less 选项 文件名<br /> More的交互：<br /> enter逐行滚动<br /> space 下一页<br /> b 上一页<br /> q 退出<br /> Less的交互：<br /> pageup 向上翻页<br /> pagedown 向下翻页<br /> n 下一个内容<br /> N 上一个内容<br /> “/”查找内容<br /> 其他功能基本与more相似 Ctrl+C 终止<br /> (3)head和tail命令 开头或末尾的部分内容（默认为10行）<br /> 语法：head/tail -n 文件名 （n为显示多少行）<br /> Tail经常与-f配合使用。以便查看网络访问、服务调试时的动态更新<br /> EX：tail -5f 1.txt</p> <h3> <a id="2_39" rel="nofollow"></a>2、统计和检索文件内容</h3> <p>(1)wc命令 统计文件内容中的单词数量（Word count）、行数、字节数等信息<br /> 语法：wc 选项 文件名<br /> -w 统计文件内容中的单词数<br /> -l 统计文件内容中的行数<br /> -c 统计文件内容中的字节数<br /> (2)grep命令 检索、过滤文件内容<br /> 语法：grep 选项 查找条件 目标文件<br /> -i：忽略大小写（ignore case）<br /> -v：反转查找（invert输出与条件不相符的行）<br /> 查找条件设置<br /> “^…”表示以…开头“…<span class="katex--inline">KaTeX parse error: Expected group after '^' at position 15: ”表示以.......结尾“^̲</span>”表示空行</p> <h2> <a id="_53" rel="nofollow"></a>三、备份与恢复文档</h2> <p>1、gzip和bzip压缩及解压缩软件<br /> 语法：gzip 选项 参数<br /> -d 解压缩<br /> 语法：bzip 选项 参数<br /> -d 解压缩<br /> -9 高压缩比<br /> 2、tar归档和释放工具<br /> 语法：tar 选项 参数<br /> -c：创建.tar格式的包文件<br /> -C：释压时指定释放的目标文件夹<br /> -f：表示使用归档文件<br /> -j：调用bzip2程序进行压缩或解压缩<br /> -p：打包时保留文件及目录的权限<br /> -P：打包时保留文件及目录的绝对路径<br /> -t：列表查看包内的文件<br /> -v：输出详细信息<br /> -x：解开.tar格式的包文件<br /> -z：调用gzip程序进行压缩或解压<br /> -f：文件名，指定的文件名存档</p> <h2> <a id="vi_75" rel="nofollow"></a>四、vi文本编辑器</h2> <p>Vi编辑器有三种工作模式分别为命令模式、输入模式、末行模式<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/46878706a5a0a1ed9805cc57088a4a6f.jpg" alt="笔记：Linux命令（目录和文件管理）"><br /> 命令模式的快捷键<br /> dd:删除一行<br /> u:撤回<br /> yy：复制一行<br /> p：将复制的一行粘贴在光标所在行的下一行<br /> P：将复制的一行粘贴在光标所在行的上一行<br /> x：删除光标所在处的字符<br /> r：替换光标所在出的字符<br /> zz（shift+zz）：保存退出<br /> 编辑模式的快捷键<br /> a：将在光标所在位置之后插入文本（append）<br /> A：将在光标所在行末插入文本<br /> i：将在光标所在位置之前插入文本（insert）<br /> I：将在光标所在行的第一个非空字符前插入文本<br /> o：将在光标所在行的下一行开始插入文本（open）<br /> O:将在光标所在行的上一行开始插入文本<br /> gg：光标移动到文本首行<br /> G：光标移动到文本末行<br /> #G：光标跳转到第#行<br /> 末行模式的快捷键<br /> ：q 退出命令模式<br /> ：w 保存<br /> ：wq 保存退出<br /> ：q！ 强制不保存退出<br /> ：wq！ 强制保存退出<br /> ：set nu 显示行号<br /> ：/abc 查找abc字符，n查找下一个，N查找上一个</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-99111.htm">宠物粮食市场营销调查报告范文（宠物粮食营销策划案）</a></p>
+                                        <p>下一个：<a href="/news/article-99908.htm">丹阳宠物免费领养中心在哪里（丹阳市宠物市场在哪里）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-high-speed-nodes.htm" title="3月18日|Clash/SSR/V2ray/Shadowrocket每天更新20M/S免费节点订阅链接，付费节点订阅推荐">3月18日|Clash/SSR/V2ray/Shadowrocket每天更新20M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-node-share.htm" title="4月14日|Clash/SSR/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接，付费节点订阅推荐">4月14日|Clash/SSR/V2ray/Shadowrocket每天更新18M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-78828.htm" title="宠物领养协议法律效力怎么写的（宠物领养协议法律效力怎么写的呢）">宠物领养协议法律效力怎么写的（宠物领养协议法律效力怎么写的呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-ssr-node.htm" title="3月7日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐">3月7日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-80177.htm" title="包含女人养猫会影响怀孕吗视频播放的词条">包含女人养猫会影响怀孕吗视频播放的词条</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-node-subscribe.htm" title="3月25日|Shadowrocket/V2ray/SSR/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐">3月25日|Shadowrocket/V2ray/SSR/Clash每天更新20.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-high-speed-nodes.htm" title="3月5日|Shadowrocket/SSR/Clash/V2ray每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">3月5日|Shadowrocket/SSR/Clash/V2ray每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/news/article-80176.htm" title="淘宝店铺转让交易平台有哪些（淘宝网店转让交易平台）">淘宝店铺转让交易平台有哪些（淘宝网店转让交易平台）</a></li>
+                        <li class="py-2"><a href="/news/article-88016.htm" title="宠物美容工资一般多少（宠物美容工资一般多少钱一个月）">宠物美容工资一般多少（宠物美容工资一般多少钱一个月）</a></li>
+                        <li class="py-2"><a href="/news/article-80903.htm" title="我们如何检查特定MySQL数据库的默认字符集？">我们如何检查特定MySQL数据库的默认字符集？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Details Section -->
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container py-4">
+        <div class="copyright">
+                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+            <a href="/">SSR Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="/assets/website/js/frontend/ssrwindows/jquery-3.5.1.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/aos/aos.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/php-email-form/validate.js"></script>
+<script src="/assets/website/js/frontend/ssrwindows/swiper/swiper-bundle.min.js"></script>
+<!-- Template Main JS File -->
+<script src="/assets/website/js/frontend/ssrwindows/main.js"></script>
+<script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+<script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
