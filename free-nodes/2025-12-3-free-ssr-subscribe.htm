@@ -331,9 +331,9 @@ A5：主要取决于网络状况和服务器质量，合理配置有助于提升
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
     <div class="panel-body">
-        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
+        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow 的 TUN 模式与系统全局代理有何区别？</h5></div>
@@ -341,34 +341,9 @@ A5：主要取决于网络状况和服务器质量，合理配置有助于提升
         TUN 模式直接拦截 IP 层流量，不依赖应用代理设置，系统全局代理通常只影响支持 HTTP/HTTPS 的程序。TUN 更适合全局科学上网和游戏环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
-    <div class="panel-body">
-        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
-    <div class="panel-body">
-        AEAD 加密能防止流量被篡改或重放，并隐藏流量特征。在高封锁网络中，使用 AEAD 可以提高节点稳定性和长期可用性，同时确保数据安全和隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
-    <div class="panel-body">
-        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>如何用 iptables 限制 V2Ray 服务的访问来源？</h5></div>
     <div class="panel-body">
         使用 iptables 规则仅允许可信 IP 或 CDN 的中转 IP 访问服务端口，例如 `iptables -A INPUT -p tcp -s <trusted_ip> --dport 443 -j ACCEPT`，并在默认策略下拒绝其他来源，从而降低被扫描与滥用风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的规则优先级如何设置？</h5></div>
-    <div class="panel-body">
-        在 PassWall2 中，规则的匹配顺序按配置文件自上而下执行。建议将精确规则放在前面，通用规则放后面，以确保高优先级的流量优先被正确分流到指定出口。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 的主要功能是什么？</h5></div>
-    <div class="panel-body">
-        Quantumult X 是一款功能极其强大的 iOS 网络代理应用，支持多种协议和脚本扩展。它可以通过规则分流、广告屏蔽、请求重写等方式优化网络体验。Quantumult X 常被技术用户用于高级自动化与自定义代理策略。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 与 Nekobox 有什么不同？</h5></div>
@@ -376,9 +351,34 @@ A5：主要取决于网络状况和服务器质量，合理配置有助于提升
         Nekoray 是一款基于 Qt 的跨平台代理前端，而 Nekobox 更偏向移动端简化使用。两者均支持 V2Ray/VLESS/Trojan 协议，但 Nekobox 提供了更轻量的界面和更快的连接启动速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
+    <div class="panel-body">
+        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
+    <div class="panel-body">
+        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 的主要功能是什么？</h5></div>
+    <div class="panel-body">
+        Quantumult X 是一款功能极其强大的 iOS 网络代理应用，支持多种协议和脚本扩展。它可以通过规则分流、广告屏蔽、请求重写等方式优化网络体验。Quantumult X 常被技术用户用于高级自动化与自定义代理策略。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何实现智能分流？</h5></div>
+    <div class="panel-body">
+        PassWall2 通过自定义规则文件控制流量走向。可根据目标域名、国家或 IP 范围自动判断走代理或直连。用户还能加载社区规则，实现类似 Clash 的高效路由分流。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 在路由器中如何更新节点订阅？</h5></div>
     <div class="panel-body">
-        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。    </div>
+        在 PassWall2 面板中点击“订阅管理”，输入或更新订阅链接后，点击“手动更新”即可自动下载最新节点数据。也可设置定时任务每日自动更新，保持配置最新。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的规则优先级如何设置？</h5></div>
+    <div class="panel-body">
+        在 PassWall2 中，规则的匹配顺序按配置文件自上而下执行。建议将精确规则放在前面，通用规则放后面，以确保高优先级的流量优先被正确分流到指定出口。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -407,16 +407,16 @@ A5：主要取决于网络状况和服务器质量，合理配置有助于提升
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-15-node-share.htm" title="11月15日|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐">11月15日|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-free-high-speed-nodes.htm" title="11月30日|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐">11月30日|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-26-free-ssr-node.htm" title="11月26日|V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐">11月26日|V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新19.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-11-free-subscribe-node.htm" title="11月11日|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐">11月11日|Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-5-free-ssr-subscribe.htm" title="11月5日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">11月5日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-free-ssr-node.htm" title="11月14日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">11月14日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-10-free-subscribe-node.htm" title="12月10日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新22.1M/S免费节点订阅链接，付费节点订阅推荐">12月10日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新22.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-10-free-ssr-subscribe.htm" title="11月10日|SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐">11月10日|SSR节点/Clash节点/Singbox节点/Shadowrocket节点/V2ray节点每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-7-free-high-speed-nodes.htm" title="12月7日|Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐">12月7日|Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-8-free-node-subscribe-links.htm" title="11月8日|V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐">11月8日|V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点每天更新20.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-29-node-share.htm" title="11月29日|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐">11月29日|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-free-node-subscribe.htm" title="11月22日|V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">11月22日|V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-1-free-ssr-subscribe.htm" title="12月1日|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">12月1日|Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-free-ssr-node.htm" title="11月12日|SSR节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">11月12日|SSR节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-11-free-subscribe-node.htm" title="12月11日|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐">12月11日|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点每天更新18.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-free-ssr-subscribe.htm" title="11月28日|Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">11月28日|Shadowrocket节点/Clash节点/Singbox节点/SSR节点/V2ray节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-14-free-ssr-node.htm" title="11月14日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐">11月14日|Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点每天更新19.2M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-free-ssr-subscribe.htm" title="11月5日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">11月5日|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-free-ssr-subscribe.htm" title="11月27日|V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐">11月27日|V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点每天更新18.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -428,7 +428,7 @@ A5：主要取决于网络状况和服务器质量，合理配置有助于提升
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
