@@ -282,14 +282,24 @@ sudo apt-get install -f   </span><span><span class="hljs-comment"># 修复依赖
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
+    <div class="panel-heading"><h5>Netch 如何结合节点测速实现自动分流？</h5></div>
     <div class="panel-body">
-        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。<hr />    </div>
+        Netch 可以结合节点延迟检测和策略组，将不同类型的流量分配到低延迟节点。提高网页、视频和游戏访问速度及稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的重写功能有什么用途？</h5></div>
+    <div class="panel-heading"><h5>Potatso Lite 手动节点切换有哪些优点？</h5></div>
     <div class="panel-body">
-        Shadowrocket 的重写功能允许用户在请求阶段修改 HTTP 头、响应内容或重定向 URL。这一功能常用于屏蔽广告、解锁区域限制或调试网页请求，非常灵活强大。<hr />    </div>
+        手动切换节点可以根据延迟和用途选择最佳节点，适合在节点不稳定或特殊需求下使用。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 的 QUIC 传输在高丢包环境下表现如何？</h5></div>
+    <div class="panel-body">
+        QUIC 基于 UDP，具备拥塞控制和重传机制，在高丢包环境下仍能保持稳定连接。Hysteria2 利用 QUIC 特性，使流量高效传输，延迟低且稳定性好。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Vmess 节点使用 WebSocket + TLS 时应注意哪些参数？</h5></div>
+    <div class="panel-body">
+        需确保路径（path）与主机名（host）匹配服务器配置，TLS 证书有效，端口与防火墙设置开放。建议开启 mux 与 keepalive 优化连接稳定性，并定期测试延迟避免 CDN 缓存导致连接异常。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
@@ -302,19 +312,9 @@ sudo apt-get install -f   </span><span><span class="hljs-comment"># 修复依赖
         管理员可为每个用户设置上传、下载和总流量上限，超出限制可自动降速或阻止访问。保证服务器资源合理分配，避免单用户占用过多带宽，提高整体公平性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何结合节点测速实现自动分流？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 的重写功能有什么用途？</h5></div>
     <div class="panel-body">
-        Netch 可以结合节点延迟检测和策略组，将不同类型的流量分配到低延迟节点。提高网页、视频和游戏访问速度及稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 节点使用 WebSocket + TLS 时应注意哪些参数？</h5></div>
-    <div class="panel-body">
-        需确保路径（path）与主机名（host）匹配服务器配置，TLS 证书有效，端口与防火墙设置开放。建议开启 mux 与 keepalive 优化连接稳定性，并定期测试延迟避免 CDN 缓存导致连接异常。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 手动节点切换有哪些优点？</h5></div>
-    <div class="panel-body">
-        手动切换节点可以根据延迟和用途选择最佳节点，适合在节点不稳定或特殊需求下使用。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
+        Shadowrocket 的重写功能允许用户在请求阶段修改 HTTP 头、响应内容或重定向 URL。这一功能常用于屏蔽广告、解锁区域限制或调试网页请求，非常灵活强大。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 是否支持 UDP 协议转发？</h5></div>
@@ -322,14 +322,14 @@ sudo apt-get install -f   </span><span><span class="hljs-comment"># 修复依赖
         原版 SSR 并不完全支持 UDP 转发，但部分魔改版本（如 SSRR）支持该功能。可在配置中开启 udp-over-tcp 模式或使用 Socks5 UDP relay 方案实现游戏等实时通信的代理需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 的 QUIC 传输在高丢包环境下表现如何？</h5></div>
-    <div class="panel-body">
-        QUIC 基于 UDP，具备拥塞控制和重传机制，在高丢包环境下仍能保持稳定连接。Hysteria2 利用 QUIC 特性，使流量高效传输，延迟低且稳定性好。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的混淆参数该如何填写？</h5></div>
     <div class="panel-body">
-        SSR 混淆参数位于节点配置中，通常选择如 tls1.2_ticket_auth 或 http_simple。参数字段可以自定义伪装主机或路径，以模拟正常流量行为，从而提高隐蔽性和抗封锁能力。    </div>
+        SSR 混淆参数位于节点配置中，通常选择如 tls1.2_ticket_auth 或 http_simple。参数字段可以自定义伪装主机或路径，以模拟正常流量行为，从而提高隐蔽性和抗封锁能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
+    <div class="panel-body">
+        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -358,16 +358,16 @@ sudo apt-get install -f   </span><span><span class="hljs-comment"># 修复依赖
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-16-free-high-speed-nodes.htm" title="4月16日|V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/SSR节点每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐">4月16日|V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/SSR节点每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-25-node-share-links.htm" title="3月25日|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">3月25日|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-7-free-subscribe-node.htm" title="3月7日|Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐">3月7日|Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-2-node-share.htm" title="4月2日|Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐">4月2日|Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新19.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-9-free-subscribe-node.htm" title="4月9日|Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">4月9日|Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Singbox节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-28-free-ssr-node.htm" title="3月28日|Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点每天更新22.7M/S免费节点订阅链接，付费节点订阅推荐">3月28日|Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点每天更新22.7M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-21-free-node-subscribe.htm" title="3月21日|Trojan节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Shadowrocket节点每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐">3月21日|Trojan节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Shadowrocket节点每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-10-clash-v2ray-ss-ssr.htm" title="4月10日|Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/SSR节点每天更新22.1M/S免费节点订阅链接，付费节点订阅推荐">4月10日|Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/SSR节点每天更新22.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-28-free-node-subscribe-links.htm" title="4月28日|Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐">4月28日|Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新20.1M/S免费节点订阅链接，付费节点订阅推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-27-free-node-subscribe.htm" title="4月27日|SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新22.3M/S免费节点订阅链接，付费节点订阅推荐">4月27日|SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点每天更新22.3M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-7-free-ssr-node.htm" title="5月7日|Shadowrocket节点/Trojan节点/SSR节点/Clash节点/Singbox节点/V2ray节点每天更新21.5M/S免费节点订阅链接，付费节点订阅推荐">5月7日|Shadowrocket节点/Trojan节点/SSR节点/Clash节点/Singbox节点/V2ray节点每天更新21.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-22-node-share.htm" title="4月22日|Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐">4月22日|Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-25-clash-v2ray-ss-ssr.htm" title="4月25日|V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">4月25日|V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-15-free-high-speed-nodes.htm" title="4月15日|Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点每天更新22.5M/S免费节点订阅链接，付费节点订阅推荐">4月15日|Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Clash节点每天更新22.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-4-free-high-speed-nodes.htm" title="5月4日|Clash节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点每天更新21.6M/S免费节点订阅链接，付费节点订阅推荐">5月4日|Clash节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点每天更新21.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-24-node-share.htm" title="4月24日|Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐">4月24日|Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点每天更新19.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-12-clash-v2ray-ss-ssr.htm" title="4月12日|Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐">4月12日|Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-14-free-node-subscribe.htm" title="4月14日|Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点每天更新18.5M/S免费节点订阅链接，付费节点订阅推荐">4月14日|Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点每天更新18.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-node-share.htm" title="4月30日|Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点每天更新22.5M/S免费节点订阅链接，付费节点订阅推荐">4月30日|Trojan节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点每天更新22.5M/S免费节点订阅链接，付费节点订阅推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-18-free-ssr-subscribe.htm" title="4月18日|Trojan节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐">4月18日|Trojan节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -379,10 +379,10 @@ sudo apt-get install -f   </span><span><span class="hljs-comment"># 修复依赖
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
