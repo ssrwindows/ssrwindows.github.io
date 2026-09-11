@@ -361,9 +361,9 @@ systemctl status v2ray
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化访问速度？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点批量更新吗？</h5></div>
     <div class="panel-body">
-        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。<hr />    </div>
+        支持。Nekoray 可通过订阅 URL 批量下载最新节点并替换旧节点。结合定时更新功能，可保持节点列表最新，减少手动维护和配置工作。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
@@ -371,19 +371,9 @@ systemctl status v2ray
         QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 与 Hiddify Next 有什么区别？</h5></div>
     <div class="panel-body">
-        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式相比普通 VLESS 有哪些优势？</h5></div>
-    <div class="panel-body">
-        XTLS 模式减少冗余加密开销，提高传输效率，并在多连接高负载环境下表现更佳。同时仍保持 TLS 安全性，结合策略组可实现高性能和高隐蔽性的双重优势。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 能否同时运行多个代理？</h5></div>
-    <div class="panel-body">
-        Nekoray 支持多配置运行。用户可在“多配置模式”下同时开启不同协议或节点的代理，程序会自动创建多个监听端口，方便多应用或分流测试使用。<hr />    </div>
+        Nekobox 更注重轻量化和本地化，界面简洁，支持多协议基础功能；而 Hiddify Next 则整合了订阅转换、测速、规则分流等高级功能，更适合技术用户使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的伪装域名为什么重要？</h5></div>
@@ -391,14 +381,14 @@ systemctl status v2ray
         伪装域名必须真实可访问且证书有效，以使流量看起来像普通 HTTPS 请求。正确配置可以降低被封锁和 DPI 检测风险，提高节点安全性和长期可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点批量更新吗？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 能否同时运行多个代理？</h5></div>
     <div class="panel-body">
-        支持。Nekoray 可通过订阅 URL 批量下载最新节点并替换旧节点。结合定时更新功能，可保持节点列表最新，减少手动维护和配置工作。<hr />    </div>
+        Nekoray 支持多配置运行。用户可在“多配置模式”下同时开启不同协议或节点的代理，程序会自动创建多个监听端口，方便多应用或分流测试使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 与 Hiddify Next 有什么区别？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 模式相比普通 VLESS 有哪些优势？</h5></div>
     <div class="panel-body">
-        Nekobox 更注重轻量化和本地化，界面简洁，支持多协议基础功能；而 Hiddify Next 则整合了订阅转换、测速、规则分流等高级功能，更适合技术用户使用。<hr />    </div>
+        XTLS 模式减少冗余加密开销，提高传输效率，并在多连接高负载环境下表现更佳。同时仍保持 TLS 安全性，结合策略组可实现高性能和高隐蔽性的双重优势。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
@@ -408,7 +398,17 @@ systemctl status v2ray
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
     <div class="panel-body">
-        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。    </div>
+        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
+    <div class="panel-body">
+        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点延迟检测如何优化访问速度？</h5></div>
+    <div class="panel-body">
+        WinXray 会定期测速节点延迟和丢包率，结合策略组自动切换到最佳节点。保证网页、视频和游戏流量走低延迟节点，提升访问速度和连接稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -456,16 +456,16 @@ systemctl status v2ray
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-subscribe-node.htm" title="8月2日|V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐">8月2日|V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点每天更新22.6M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-11.htm" title="8月11日|Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐">8月11日|Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点每天更新22.4M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-16-node-share.htm" title="7月16日|Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/SSR节点每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐">7月16日|Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/SSR节点每天更新18.3M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-free-ssr-subscribe.htm" title="7月25日|Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">7月25日|Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="8月12日|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐">8月12日|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点每天更新19.6M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-free-ssr-subscribe.htm" title="7月27日|Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Singbox节点/Clash节点每天更新18.5M/S免费节点订阅链接，付费节点订阅推荐">7月27日|Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Singbox节点/Clash节点每天更新18.5M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-clash-v2ray-ss-ssr.htm" title="7月21日|Clash节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐">7月21日|Clash节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点/Singbox节点每天更新21.9M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-7-31.htm" title="7月31日|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐">7月31日|Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点每天更新21.7M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-3.htm" title="8月3日|Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐">8月3日|Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点每天更新19.4M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-free-high-speed-nodes.htm" title="8月4日|Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐">8月4日|Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点每天更新21.3M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-7.htm" title="8月7日|V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点每天更新21.4M/S免费节点订阅链接，付费节点订阅推荐">8月7日|V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点每天更新21.4M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-17.htm" title="8月17日|Shadowrocket节点/Trojan节点/Clash节点/V2ray节点/Singbox节点/SSR节点每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐">8月17日|Shadowrocket节点/Trojan节点/Clash节点/V2ray节点/Singbox节点/SSR节点每天更新18.7M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-25.htm" title="8月25日|Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐">8月25日|Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点每天更新18.6M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-8-31.htm" title="8月31日|V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点每天更新21.2M/S免费节点订阅链接，付费节点订阅推荐">8月31日|V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点每天更新21.2M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-free-node-subscribe.htm" title="8月14日|SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐">8月14日|SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点每天更新20.5M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-node-share.htm" title="8月22日|Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐">8月22日|Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点每天更新18.9M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-15.htm" title="8月15日|Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐">8月15日|Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-free-ssr-node.htm" title="8月30日|Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点每天更新20M/S免费节点订阅链接，付费节点订阅推荐">8月30日|Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Trojan节点每天更新20M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-23.htm" title="8月23日|Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐">8月23日|Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点每天更新23M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-high-speed-nodes.htm" title="8月20日|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点每天更新22M/S免费节点订阅链接，付费节点订阅推荐">8月20日|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/Trojan节点每天更新22M/S免费节点订阅链接，付费节点订阅推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -477,10 +477,10 @@ systemctl status v2ray
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
